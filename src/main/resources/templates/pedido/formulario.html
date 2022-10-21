@@ -1,0 +1,44 @@
+<html>
+<head th:replace="~{base :: head}">
+</head>
+
+<body>
+	<div th:replace="~{base :: logo}"></div>
+	<div class="container">
+		<div th:replace="~{base :: title('Novo Pedido')}"></div>
+		<div   class="card mt-3">
+		<form th:object="${requisicaoNovoPedido}" class="card-body" action="/pedido/novo" method="POST">
+			<div class="form-group">
+				<label for="nomeProduto exampleFormControlInput1" class="form-label">Produto</label>
+				<input th:field="*{nomeProduto}" th:errorclass="is-invalid" class="form-control" placeholder="nome do produto"/> 
+				<small>Informa qual o nome do produto.</small>
+				<div th:errors="*{nomeProduto}" id="validationServer03Feedback" class="invalid-feedback">
+					não pode estar em branco.
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="urlDoProduto" class="form-label">Url do Produto</label>
+				<input th:field="*{urlDoProduto}" th:errorclass="is-invalid" 	class="form-control" placeholder="url do produto"/> 
+				<small>Procure e cole a url do produto que você deseja.</small>
+					<div th:errors="*{urlDoProduto}" id="validationServer03Feedback" class="invalid-feedback">
+					não pode estar em branco.
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="urlImagem" class="form-label">Url da Imagem</label>
+				<input th:field="*{urlDaImagem}" th:errorclass="is-invalid"	class="form-control" placeholder="url da imagem"/>
+				<small>Procure e cole a url de uma boa imagem do produto para melhor encontrar compradores.</small>
+					<div th:errors="*{urlDaImagem}" id="validationServer03Feedback" class="invalid-feedback">
+						não pode estar em branco.
+					</div>
+			</div>
+			<div class="form-group">
+				<label for="descricao" class="form-label">Url da Imagem</label>
+				<textarea name="descricao"	class="form-control" placeholder="Adicione detalhes importantes para o comprador."></textarea> 
+			</div>
+				<button type="submit" class="btn btn-primary">Cadastrar</button>
+		</form>
+</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<html>
+<head th:replace="~{base :: head}">
+</head>
+
+<body>
+	    <div th:replace="~{base :: logo}"></div>
+	<div class="container">
+	<div th:replace="~{base :: title('Meus Pedidos')}"></div>
+		<nav
+			class="navbar navbar-expand-lg bg-light d-flex justify-content-between mb-3">
+			<ul class="navbar-nav">
+				<a class="nav-link active" aria-current="page" href="">Todos</a>
+				<a class="nav-link" href="#">Aguardando</a>
+				<a class="nav-link" href="#">Aprovado</a>
+				<a class="nav-link" href="#">Entregue</a>
+			</ul>
+			<a href="pedido/formulario"><button class="btn btn-secondary"
+					type="submit">Novo</button></a>
+		</nav>
+		<div class="container" th:each="pedido : ${pedidos}">
+			<div class="card mb-3">
+				<div class="card-header">
+					<span th:text="${pedido.nomeProduto}">Nome do produto: </span>
+				</div>
+
+				<div class="card-body">
+					<div class="row">
+						<div class="col-6 col-sm-8 mb-3">
+							<div>
+								<div class="row">
+									<div class="col-5">
+										Valor: <span th:text="${pedido.valorNegociado}">200,99</span>
+									</div>
+									<div class="col-7">
+										Data da entrega: <span th:text="${pedido.dataDaEntrega}">14/10/2022</span>
+									</div>
+								</div>
+							</div>
+							<div>Produto</div>
+							<div>
+								<input class="form-control" th:value="${pedido.urlDoProduto}"
+									value="url do produt">
+							</div>
+
+							<div>Descrição</div>
+							<div>
+								<textarea class="form-control" th:text="${pedido.descricao}">descrição do pedido </span></textarea>
+							</div>
+						</div>
+						<div class="col-12 col-sm-4">
+							<div>
+								<img th:src="${pedido.urlDaImagem}" src="">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
