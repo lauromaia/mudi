@@ -21,15 +21,15 @@ public class WebSecurityConfig {
 		authenticated().and().formLogin(form -> form
 				.loginPage("/login")
 				.permitAll()
-			);
+			).logout(logout -> logout.logoutUrl("/logout"));
 		return http.build();
 	}
 	@Bean
 	public UserDetailsService userDetailsService() {
 		UserDetails user =
 			 User.withDefaultPasswordEncoder()
-				.username("outro")
-				.password("outro")
+				.username("root")
+				.password("root")
 				.roles("ADM")
 				.build();
 
