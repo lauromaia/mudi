@@ -4,6 +4,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import br.com.alura.mudi.modelo.Pedido;
+import br.com.alura.mudi.modelo.StatusPedido;
 
 public class RequisicaoNovoPedido {
 	@NotBlank
@@ -45,9 +46,12 @@ public class RequisicaoNovoPedido {
 		pedido.setUrlDaImagem(urlDaImagem);
 		pedido.setUrlDoProduto(urlDoProduto);
 		pedido.setNomeProduto(nomeProduto);
+		pedido.setStatus(StatusPedido.AGUARDANDO);
 		
 		return pedido;
 		
 	}
+	
+
 	
 }

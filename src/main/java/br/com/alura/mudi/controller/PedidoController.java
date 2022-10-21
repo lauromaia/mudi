@@ -16,23 +16,23 @@ import br.com.alura.mudi.repository.PedidoRepository;
 @Controller
 @RequestMapping("/pedido")
 public class PedidoController {
-	
+
 	@Autowired
 	private PedidoRepository pedidoRepository;
-	
+
 	@GetMapping("formulario")
 	public String formulario(RequisicaoNovoPedido requisicaoNovoPedido) {
 		return "pedido/formulario";
 	}
-	
+
 	@PostMapping("novo")
 	public String novo(@Valid RequisicaoNovoPedido requisicaoNovoPedido, BindingResult result) {
-		if(result.hasErrors()) {
+		if (result.hasErrors()) {
 			return "pedido/formulario";
 		}
-		
 		Pedido pedido = requisicaoNovoPedido.toPedido();
 		pedidoRepository.save(pedido);
-		return "pedido/formulario";
+		return "redirect:/home";
 	}
+
 }
