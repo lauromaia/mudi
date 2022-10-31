@@ -28,13 +28,16 @@
 		        <form id="form-login" th:action="@{/logout}" method="post"></form>
 		    </span>
 		</div>
-		<div class="row mb-2" sec:authorize="isAuthenticated()">
+		<div class="mb-2" sec:authorize="isAuthenticated()">
 			<ul class="nav">
 		  		<li class="nav-item">
 		    		<a class="nav-link" th:href="@{/home}">Home</a>
 		  		</li>
 		  		<li class="nav-item">
 		    		<a class="nav-link" th:href="@{/usuario/pedido}">Meus Pedidos</a>
+		  		</li>
+		  		<li class="nav-item">
+		    		<a class="nav-link" th:href="@{/oferta}">Faça sua oferta</a>
 		  		</li>
 			</ul>
 		</div>

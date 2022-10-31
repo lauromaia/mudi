@@ -22,6 +22,12 @@ public class User {
 	private List<Pedido> pedidos;
 	
 	
+	public List<Pedido> getPedidos() {
+		return pedidos;
+	}
+	public void setPedidos(List<Pedido> pedidos) {
+		this.pedidos = pedidos;
+	}
 	public String getUsername() {
 		return username;
 	}
